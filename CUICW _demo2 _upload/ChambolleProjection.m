@@ -1,8 +1,5 @@
 % chambolle projection algorithm
 function u=ChambolleProjection(g,tao,lambda,n)
-% Chambolle Projection uses chambolle projection algorithm denoising .
-% u0 input image
-% n iteration time
 [M,N,~]=size(g);
 p=zeros(M,N,2); 
 for i=1:n
