@@ -7,7 +7,6 @@ path = './';
 inputDir = [path filesep 'datawater' filesep  'Elephant' filesep];
 outputDir = [path filesep 'result' filesep  'Elephantresult' filesep]; 
 semioutputDir = [path filesep 'datawater' filesep  'centroid_Elephant' filesep]; 
-
 N = 61;
 Image_data = cell(1, N);
 Image_data2 = cell(1, N);
