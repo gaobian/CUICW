@@ -30,13 +30,12 @@ else
         imwrite(Image_data{j} ,[imFileDir 'centroid_y_', num2str(j),'.png']);
     end 
 end
-umean=float_weisz(Image_data);
 lamda =1.8;
 %lamda=\mu_1
 beta=0.8;
 %beta=\mu_2
 [r,b,pd]=size(Image_data{1});
-u =Restration(Image_data,Image_data2,umean,lamda,N,r,b,pd,beta);
+u =Restration(Image_data,Image_data2,lamda,N,r,b,pd,beta);
 figure
 imshow(uint8(u))
 imwrite(uint8(u),[imFileDir1 'wes_61_beta0.8lambda_1.8.png']);
