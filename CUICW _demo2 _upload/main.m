@@ -7,7 +7,7 @@ path = './';
 imFileDir1 = [path filesep 'result' filesep  'Elephantresult' filesep]; 
 imFileDir = [path filesep 'datawater' filesep  'centroid_Elephant' filesep]; 
 imFileDir2 = [path filesep 'datawater' filesep  'Elephant' filesep];
-N=61;
+N = 61;
 Image_data = cell(1, N);
 Image_data2 = cell(1, N);
 for j=1:N
@@ -22,8 +22,8 @@ lamda = 1.8;
 %lamda=\mu_1
 beta = 0.8;
 %beta=\mu_2
-[r,b,pd]=size(Image_data{1});
-u =restoration(Image_data,Image_data2,lamda,N,r,b,pd,beta);
+[r,b,pd] = size(Image_data{1});
+u = restoration(Image_data,Image_data2,lamda,N,r,b,pd,beta);
 figure
 imshow(uint8(u))
 imwrite(uint8(u),[imFileDir1 'wes_61_beta0.8lambda_1.8.png']);
