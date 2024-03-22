@@ -4,31 +4,23 @@ clear;close all;clc;
 addpath('./OpticalFlow');
 addpath('./OpticalFlow/mex');
 path = './';  
-imFileDir1= [path filesep 'result' filesep  'Elephantresult' filesep]; 
-imFileDir= [path filesep 'datawater' filesep  'centroid_Elephant' filesep]; 
-imFileDir2   = [path filesep 'datawater' filesep  'Elephant' filesep];
+imFileDir1 = [path filesep 'result' filesep  'Elephantresult' filesep]; 
+imFileDir = [path filesep 'datawater' filesep  'centroid_Elephant' filesep]; 
+imFileDir2 = [path filesep 'datawater' filesep  'Elephant' filesep];
 N=61;
-Image_data = cell (1, N);
-Image_data2 = cell (1, N);
+Image_data = cell(1, N);
+Image_data2 = cell(1, N);
 for j=1:N
-    Image_data2{j} =  im2double(imread([imFileDir2 'y_',num2str(j),'.png']));
+    Image_data2{j} = im2double(imread([imFileDir2 'y_',num2str(j),'.png']));
 end
-filename=[imFileDir 'centroid_y_1.png'];
-if exist(filename, 'file')
-    for j=1:N
-       Image_data{j} =  im2double(imread([imFileDir 'centroid_y_', num2str(j),'.png']));
-    %    Image_data{j}=(double(Image_data{j}));
-    end 
-else
-    for j = 1:N
-        ref = Image_data2{j};
-        Image_data{j} = centroid(Image_data2,ref);
-        imwrite(Image_data{j} ,[imFileDir 'centroid_y_', num2str(j),'.png']);
-    end 
+for j = 1:N
+    ref = Image_data2{j};
+    Image_data{j} = centroid(Image_data2,ref);
+    imwrite(Image_data{j},[imFileDir 'centroid_y_', num2str(j),'.png']);
 end
-lamda =1.8;
+lamda = 1.8;
 %lamda=\mu_1
-beta=0.8;
+beta = 0.8;
 %beta=\mu_2
 [r,b,pd]=size(Image_data{1});
 u =restoration(Image_data,Image_data2,lamda,N,r,b,pd,beta);
