@@ -16,7 +16,7 @@ end
 for j = 1:N
     ref = Image_data2{j};
     Image_data{j} = centroid(Image_data2, ref);
-    imwrite(Image_data{j}, [semioutputDir 'centroid_y_', num2str(j), '.png']);
+%   imwrite(Image_data{j}, [semioutputDir 'centroid_y_', num2str(j), '.png']);
 end
 lamda = 1.8;
 %lamda=\mu_1
